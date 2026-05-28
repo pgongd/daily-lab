@@ -1,0 +1,59 @@
+@use '../scss/mixins' as *;
+
+:global {
+  .header {
+    &__inner {
+      position: relative;
+      width: 1280px;
+      margin: 0 auto;
+    }
+    &__top {
+    }
+    &__left {
+      @include flex;
+    }
+    &__right {
+      @include flex(flex-end);
+    }
+  }
+
+  .headline {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
+  .inner {
+  }
+  h1 {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 40px;
+  }
+  .submit {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.shortcut {
+  .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    li {
+      width: 50px;
+      height: 50px;
+      & + & {
+        margin-left: 4px;
+      }
+    }
+  }
+}

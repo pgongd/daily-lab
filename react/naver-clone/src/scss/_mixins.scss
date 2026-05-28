@@ -1,0 +1,6 @@
+// 기본형 플렉스 믹스인
+@mixin flex($justify: flex-start, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
