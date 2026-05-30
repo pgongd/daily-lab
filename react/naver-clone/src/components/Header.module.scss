@@ -3,17 +3,96 @@
 :global {
   .header {
     &__inner {
+      height: 52px;
       position: relative;
       width: 1280px;
       margin: 0 auto;
     }
     &__top {
+      @include flex(space-between);
     }
     &__left {
       @include flex;
     }
     &__right {
-      @include flex(flex-end);
+      @include flex;
+    }
+  }
+  .top-menu {
+    &__btn {
+      position: relative;
+      padding: 8px;
+      &::after {
+        @include ico-img-after;
+        @include sp-main;
+        background-position: -311px -151px;
+      }
+      &:hover {
+        &::before {
+          @include ico-hover-before;
+        }
+      }
+    }
+    &__layer-box {
+      position: absolute;
+    }
+  }
+  .top-pay {
+    &__link {
+      position: relative;
+      display: block;
+      padding: 8px;
+      &::after {
+        @include ico-img-after;
+        @include sp-main;
+        background-position: 0px -318px;
+      }
+      &:hover {
+        &::before {
+          @include ico-hover-before;
+        }
+      }
+    }
+  }
+
+  .top-noti {
+    &__btn {
+      position: relative;
+      padding: 8px;
+      &::after {
+        @include ico-img-after;
+        @include sp-main;
+        background-position: -311px -217px;
+      }
+      &:hover {
+        &::before {
+          @include ico-hover-before;
+        }
+      }
+    }
+  }
+
+  .top-shop {
+    &__link {
+      position: relative;
+      display: block;
+      padding: 8px;
+      &::after {
+        @include ico-img-after;
+        @include sp-main;
+        background-position: -66px -318px;
+      }
+      &:hover {
+        &::before {
+          @include ico-hover-before;
+        }
+      }
+    }
+  }
+
+  .logo {
+    &__link {
+      color: rgb(21, 207, 99);
     }
   }
 
@@ -25,34 +104,109 @@
 
 .search {
   position: relative;
-  width: 400px;
+  width: 706px;
   margin: 0 auto;
+  border: 1px solid var(--color-primary-foreground-decorative);
+  background-color: var(--color-neutral-background-default);
+  z-index: 10;
+  border-radius: 33px;
+  &:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  }
   .inner {
+    padding-left: 28px;
+  }
+  .input {
+    position: relative;
+    width: 100%;
+    height: 58px;
+    z-index: 10;
+    padding: 17px 0;
+    background-color: rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+    font-size: 2rem;
+    line-height: 24px;
+    font-weight: bold;
+    outline: 0;
+    color: var(--color-neutral-foreground-default);
+    .sv_search {
+      color: #15cf63;
+    }
   }
   h1 {
     position: absolute;
     left: 0;
-    width: 40px;
-    height: 40px;
+    .sv-logo {
+      opacity: 1;
+      transform: scale(1);
+      transition:
+        opacity 0.3s 3.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+        transform 0.3s 3.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
   }
   .submit {
     position: absolute;
     right: 0;
-    width: 40px;
-    height: 40px;
+    padding: 17px 27px 16px 10px;
+    cursor: pointer;
   }
 }
+
+//service 아이콘 좌표 매핑
+$icon-maps: (
+  'mail': -205px -219px,
+  'cafe': -41px -219px,
+  'blog': 0px -219px,
+  'shop': -41px -260px,
+  'news': -270px -205px,
+  'stock': -123px -260px,
+  'real': 0px -260px,
+  'map': -270px 0px,
+  'webtoon': -164px -260px,
+  'chzzk': -270px -164px
+);
 
 .shortcut {
   .list {
     display: flex;
     align-items: center;
     justify-content: center;
-    li {
+    .item {
       width: 50px;
       height: 50px;
       & + & {
         margin-left: 4px;
+      }
+      .link {
+      }
+    }
+  }
+  .service-icon {
+    position: relative;
+    &::after,
+    &::before {
+      @include sp-main;
+    }
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -1px;
+      left: -3px;
+      width: 50px;
+      height: 50px;
+    }
+    &:hover::before {
+      background-position: -153px -142px;
+    }
+    @each $name, $pos in $icon-maps {
+      &.type_#{$name}::after {
+        @if length($pos) > 0 {
+          @include service-icon-after($pos);
+        }
       }
     }
   }
