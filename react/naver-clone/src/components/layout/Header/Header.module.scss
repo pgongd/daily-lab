@@ -1,12 +1,10 @@
-@use '../scss/mixins' as *;
+@use '@/styles/mixins' as *;
 
 :global {
   .header {
     &__inner {
-      height: 52px;
-      position: relative;
-      width: 1280px;
-      margin: 0 auto;
+      @include layout-inner;
+      height: 215px;
     }
     &__top {
       @include flex(space-between);
@@ -16,6 +14,13 @@
     }
     &__right {
       @include flex;
+    }
+    &__special-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -10;
+      overflow: hidden;
+      height: 215px;
     }
   }
   .top-menu {
@@ -91,13 +96,31 @@
   }
 
   .logo {
+    position: absolute;
+    left: 27px;
+    top: 50%;
+    transform: translateY(-50%);
     &__link {
-      color: rgb(21, 207, 99);
+      display: block;
+      width: 24px;
+      height: 24px;
+      .sv-logo {
+        opacity: 1;
+        transform: scale(1);
+        transition:
+          opacity 0.3s 3.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+          transform 0.3s 3.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        width: 24px;
+        height: 24px;
+        display: block;
+        fill: var(--color-primary-foreground-decorative);
+      }
     }
   }
 
   .headline {
     position: absolute;
+    top: 86px;
     right: 0;
   }
 }
@@ -114,7 +137,7 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
   }
   .inner {
-    padding-left: 28px;
+    padding-left: 68px;
   }
   .input {
     position: relative;
@@ -128,30 +151,44 @@
     line-height: 24px;
     font-weight: bold;
     outline: 0;
+    margin-right: 68px;
     color: var(--color-neutral-foreground-default);
-    .sv_search {
-      color: #15cf63;
+    &::placeholder {
+      font-weight: normal;
+      color: rgba(0, 0, 0, 0);
+    }
+    &:focus ::placeholder {
+      color: var(--color-neutral-foreground-decorative-3);
     }
   }
-  h1 {
-    position: absolute;
-    left: 0;
-    .sv-logo {
-      opacity: 1;
-      transform: scale(1);
-      transition:
-        opacity 0.3s 3.2s cubic-bezier(0.645, 0.045, 0.355, 1),
-        transform 0.3s 3.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-      width: 24px;
-      height: 24px;
-      display: block;
-    }
-  }
+
   .submit {
     position: absolute;
     right: 0;
-    padding: 17px 27px 16px 10px;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
+    .sv_search {
+      display: block;
+      width: 25px;
+      height: 25px;
+      fill: var(--color-primary-foreground-decorative);
+    }
+  }
+}
+
+.shortcut {
+  .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .item {
+      width: 50px;
+      height: 50px;
+      & + & {
+        margin-left: 4px;
+      }
+    }
   }
 }
 
@@ -169,23 +206,13 @@ $icon-maps: (
   'chzzk': -270px -164px
 );
 
-.shortcut {
-  .list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .item {
-      width: 50px;
-      height: 50px;
-      & + & {
-        margin-left: 4px;
-      }
-      .link {
-      }
-    }
-  }
-  .service-icon {
+.service {
+  &-icon {
     position: relative;
+    width: 44px;
+    height: 44px;
+    display: block;
+    margin: 10px auto 0;
     &::after,
     &::before {
       @include sp-main;
@@ -196,6 +223,7 @@ $icon-maps: (
       position: absolute;
       top: -1px;
       left: -3px;
+      background-position: -153px -142px;
       width: 50px;
       height: 50px;
     }
@@ -204,10 +232,19 @@ $icon-maps: (
     }
     @each $name, $pos in $icon-maps {
       &.type_#{$name}::after {
-        @if length($pos) > 0 {
-          @include service-icon-after($pos);
-        }
+        @include service-icon-after($pos);
       }
     }
+  }
+  &-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    margin-top: 4px;
+    font-size: 1.3rem;
+    line-height: 20px;
+    text-align: center;
+    color: var(--color-neutral-foreground-subtle-1);
   }
 }
