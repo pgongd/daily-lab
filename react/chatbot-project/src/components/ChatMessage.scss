@@ -1,0 +1,70 @@
+.message {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.chat-message {
+  &--user {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    .chat-message__bubble {
+      background: #f5f6fa;
+      color: #222;
+      border-radius: 28px 5px 28px 28px;
+    }
+  }
+  &--robot {
+    display: flex;
+    align-items: start;
+    .chat-message__bubble {
+      background: #3e6cf6;
+      color: #fff;
+      border-radius: 5px 28px 28px 28px;
+      box-shadow: 0 10px 24px rgba(62, 108, 246, 0.18);
+    }
+  }
+  &__bubble {
+    max-width: 260px;
+    padding: 18px 20px;
+    line-height: 1.5;
+    font-size: 15px;
+    word-break: break-word;
+    &.typing {
+      background: #fff;
+    }
+  }
+}
+
+.typing-indicator {
+  display: flex;
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: #198754;
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: typing 1.4s infinite ease-in-out;
+    &:nth-child(2) {
+      opacity: 0.6;
+      animation-delay: 0.2s;
+    }
+    &:nth-child(3) {
+      opacity: 0.3;
+      animation-delay: 0.4s;
+    }
+  }
+}
+
+@keyframes typing {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
