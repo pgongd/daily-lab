@@ -9,11 +9,15 @@
 }
 .chat-message-profile {
   width: 45px;
+  height: 45px;
+  border-radius: 50%;
 }
 .chat-messages {
   &__container {
-    flex-grow: 1;
+    flex: 1;
     overflow: scroll;
     scrollbar-width: none;
+    min-height: 0;
+    padding: 20px;
   }
 }

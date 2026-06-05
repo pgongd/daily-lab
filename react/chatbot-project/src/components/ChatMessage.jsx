@@ -4,7 +4,7 @@ import "./ChatMessage.scss";
 
 export function ChatMessage({ message, sender, isTyping }) {
   return (
-    <div
+    <article
       className={`message ${
         sender === "user" ? "chat-message--user" : "chat-message--robot"
       }`}
@@ -26,6 +26,6 @@ export function ChatMessage({ message, sender, isTyping }) {
       {sender === "user" && (
         <img src={UserProfileImage} className="chat-message-profile" />
       )}
-    </div>
+    </article>
   );
 }
