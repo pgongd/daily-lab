@@ -1,0 +1,17 @@
+@use '@/styles/mixins' as *;
+
+:global {
+  .main {
+    @include layout-inner;
+    @include flex($justify: space-between, $align: flex-start);
+    gap: 30px;
+    margin-bottom: 30px;
+    & > [class*='layout'] {
+      @include flex($justify: flex-start, $align: stretch, $fx: column);
+      width: 100%;
+      section {
+        border: 2px solid #f00;
+      }
+    }
+  }
+}

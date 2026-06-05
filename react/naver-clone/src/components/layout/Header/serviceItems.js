@@ -1,4 +1,4 @@
-const serviceIcon = [
+export const serviceIcon = [
   { type: 'type_mail', text: '메일' },
   { type: 'type_cafe', text: '카페' },
   { type: 'type_blog', text: '블로그' },

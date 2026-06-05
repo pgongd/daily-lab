@@ -1,16 +1,24 @@
-
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: 100%;
   font-weight: normal;
 }
 
-ul, ol, li {
+ul,
+ol,
+li {
   list-style: none;
 }
 
@@ -18,15 +26,20 @@ a {
   color: inherit;
   text-decoration: none;
 }
+a:hover {
+  text-decoration: none;
+}
 
 button {
   background: none;
   border: none;
   cursor: pointer;
-  font: inherit; 
+  font: inherit;
 }
 
-img, svg, video {
+img,
+svg,
+video {
   display: block;
   max-width: 100%;
   height: auto;
@@ -41,7 +54,7 @@ textarea {
 // ==========================================================================
 
 #root {
-  min-height: 100vh; 
+  min-height: 100vh;
   min-height: 100dvh;
 }
 
