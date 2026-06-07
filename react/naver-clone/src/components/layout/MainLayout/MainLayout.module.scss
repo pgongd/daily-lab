@@ -10,7 +10,16 @@
       @include flex($justify: flex-start, $align: stretch, $fx: column);
       width: 100%;
       section {
-        border: 2px solid #f00;
+        position: relative;
+        border-radius: 8px;
+        box-shadow:
+          0 0 0 1px var(--color-neutral-stroke-subtle-1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.04);
+        background-color: var(--color-neutral-background-default);
+
+        & + section {
+          margin-top: 16px;
+        }
       }
     }
   }

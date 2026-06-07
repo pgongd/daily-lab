@@ -2,6 +2,7 @@ import style from './NewsSection.module.scss';
 import { useState } from 'react';
 
 export function NewsSection() {
+  console.log(style);
   const [activeTab, setActiveTab] = useState('newsStand');
 
   return (
@@ -18,6 +19,31 @@ export function NewsSection() {
                   언론사편집
                 </button>
               </div>
+            </li>
+            <li className={style.categoryItem}>
+              <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                엔터
+              </button>
+            </li>
+            <li className={style.categoryItem}>
+              <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                스포츠
+              </button>
+            </li>
+            <li className={style.categoryItem}>
+              <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                게임
+              </button>
+            </li>
+            <li className={style.categoryItem}>
+              <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                경제
+              </button>
+            </li>
+            <li className={style.categoryItem}>
+              <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                쇼핑투데이
+              </button>
             </li>
           </ul>
         </div>
