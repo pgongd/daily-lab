@@ -6,9 +6,16 @@
     @include flex($justify: space-between, $align: flex-start);
     gap: 30px;
     margin-bottom: 30px;
+    .layout {
+      &-left {
+        width: 830px;
+      }
+      &-right {
+        width: 480px;
+      }
+    }
     & > [class*='layout'] {
       @include flex($justify: flex-start, $align: stretch, $fx: column);
-      width: 100%;
       section {
         position: relative;
         border-radius: 8px;

@@ -6,12 +6,19 @@
 }
 
 // 기본형 플렉스 믹스인
-@mixin flex($justify: flex-start, $align: center, $fx: row) {
+@mixin flex($justify: null, $align: null, $fx: row, $gap: null) {
   display: flex;
-  justify-content: $justify;
-  align-items: $align;
-  @if $fx != row {
-    flex-direction: $fx;
+  flex-direction: $fx;
+
+  @if $justify != null {
+    justify-content: $justify;
+  }
+  @if $align != null {
+    align-items: $align;
+  }
+
+  @if $gap != null {
+    gap: $gap;
   }
 }
 

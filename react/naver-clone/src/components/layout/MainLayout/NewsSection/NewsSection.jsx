@@ -116,6 +116,36 @@ export function NewsSection() {
                   <span className={style.company}>스타뉴스</span>
                 </a>
               </li>
+              <li className={style.noticeItem}>
+                <a href="#" target="_blank" className={style.link} rel="noopener noreferrer">
+                  <span className={style.text}>에릭센 또 쓰러졌는데 "마지막 경기일 것"…손흥민 절친, 더는 그라운에서 못 보나→"추가 검사 필요"</span>
+                  <span className={style.company}>엑스포츠뉴스</span>
+                </a>
+              </li>
+              <li className={style.noticeItem}>
+                <a href="#" target="_blank" className={style.link} rel="noopener noreferrer">
+                  <span className={style.text}>'16개 대회 전부 컷 통과' 김시우, 세계 18위 커리어 최고 찍었다</span>
+                  <span className={style.company}>마니아타임즈</span>
+                </a>
+              </li>
+              <li className={style.noticeItem}>
+                <a href="#" target="_blank" className={style.link} rel="noopener noreferrer">
+                  <span className={style.text}>"이 이미지 잊히지 않겠지만..." 50G 징계 마친 롯데 김동혁, 팬들 앞에 고개 숙였다 "정말 잘해야겠다는 생각뿐입니다" [광주 현장인터뷰]</span>
+                  <span className={style.company}>스타뉴스</span>
+                </a>
+              </li>
+              <li className={style.noticeItem}>
+                <a href="#" target="_blank" className={style.link} rel="noopener noreferrer">
+                  <span className={style.text}>에릭센 또 쓰러졌는데 "마지막 경기일 것"…손흥민 절친, 더는 그라운에서 못 보나→"추가 검사 필요"</span>
+                  <span className={style.company}>엑스포츠뉴스</span>
+                </a>
+              </li>
+              <li className={style.noticeItem}>
+                <a href="#" target="_blank" className={style.link} rel="noopener noreferrer">
+                  <span className={style.text}>'16개 대회 전부 컷 통과' 김시우, 세계 18위 커리어 최고 찍었다</span>
+                  <span className={style.company}>마니아타임즈</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>

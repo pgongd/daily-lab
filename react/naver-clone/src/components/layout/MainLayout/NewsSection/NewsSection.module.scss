@@ -17,7 +17,8 @@
             height: 4px;
             border-radius: 50%;
             background-color: var(--color-neutral-stroke-default);
-            vertical-align: top;
+            vertical-align: middle;
+            margin: 0 8px;
           }
         }
       }
@@ -79,10 +80,58 @@
   }
 
   .paging {
+    @include flex($justify: center);
     position: relative;
     padding: 10px 0 11px;
     border-top: 1px solid var(--color-neutral-stroke-divider);
     text-align: center;
+    .prev,
+    .next {
+      position: relative;
+      dispaly: inline-block;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--color-neutral-stroke-default);
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      &:hover {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+        background-color: var(--color-function-effect-state-layer-soft-hover);
+      }
+      &::before {
+        @include sp-main;
+        background-position: -38px -441px;
+        @include ico-img-after(12, 12);
+        margin: auto;
+      }
+    }
+    .prev {
+      transform: rotate(180deg);
+    }
+    .pagingContent {
+      @include flex($align: center);
+      min-width: 156px;
+      padding: 0 16px;
+      font-size: 13px;
+      line-height: 35px;
+      font-weight: 600;
+      vetical-align: middle;
+      color: var(--color-neutral-foreground-subtle-3);
+    }
+    .page {
+    }
+    .total {
+      color: var(--color-neutral-foreground-decorative-2);
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 10px;
+        margin: 0 4px;
+        transform: skewX(-15deg);
+        background-color: var(--color-neutral-stroke-default);
+      }
+    }
   }
 }
 
@@ -90,33 +139,118 @@
   margin: 20px;
   @include flex($align: flex-start);
   gap: 20px;
-  .media {
-    flex: 1;
-    .link {
-      @include flex;
-      .thumb {
-        margin-right: 16px;
-        width: 185px;
-        height: 104px;
-        border-radius: 4px;
+}
+
+.media {
+  flex: 1;
+  min-width: 0;
+}
+.mediaList {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+.mediaItem {
+  display: flex;
+  flex-direction: column;
+  img {
+    transition: transform 0.3s ease;
+  }
+  .link {
+    display: flex;
+    &:hover {
+      .img {
+        transform: scale(1.05);
       }
-      .info {
-        .title {
-          display: block;
-          display: -webkit-box;
-          overflow: hidden;
-          max-height: 42px;
-          line-height: 21px;
-          text-overflow: ellipsis;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          margin-right: 8px;
-          word-break: break-all;
+    }
+    .thumb {
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin-right: 16px;
+      width: 185px;
+      height: 104px;
+      border-radius: 4px;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        border: 1px solid var(--color-neutral-stroke-subtle-2);
+      }
+    }
+    .info {
+      .title {
+        display: block;
+        display: -webkit-box;
+        overflow: hidden;
+        max-height: 42px;
+        line-height: 21px;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin-right: 8px;
+        word-break: break-all;
+      }
+      .desc {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-top: 7px;
+        font-size: 13px;
+        color: var(--color-neutral-foreground-subtle-3);
+      }
+      .time {
+        position: relative;
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          background-color: var(--color-neutral-stroke-default);
+          margin: 0 6px;
+          vertical-align: middle;
         }
       }
     }
   }
-  .notice {
-    flex: 1;
+}
+.notice {
+  flex: 1;
+  min-width: 0;
+}
+.noticeList {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+.noticeItem {
+  .link {
+    display: flex;
+    line-height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    .text {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .company {
+      font-size: 13px;
+      color: var(--color-neutral-foreground-subtle-3);
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        vertical-align: top;
+        background-color: var(--color-neutral-stroke-default);
+        margin: 8px 6px 0 7px;
+      }
+    }
   }
 }
