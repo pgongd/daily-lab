@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { categoryData } from './newsSection.data.js';
 
 export function NewsSection() {
+  console.log(style);
   const [activeTab, setActiveTab] = useState('newsStand');
 
   return (
@@ -13,49 +14,59 @@ export function NewsSection() {
             {categoryData.map((category) => {
               if (category.isGroup) {
                 return (
-                  <li className={style.categoryItem} key={category.id}>
+                  <li className={style.categoryItem}>
                     <div className={style.categoryGroup}>
-                      {category.children.map((child) => (
-                        <button
-                          type="button"
-                          className={style.categoryTab}
-                          role="tab"
-                          aria-selected={activeTab === child.id}
-                          aria-controls={`panel-${child.id}`}
-                          onClick={() => setActiveTab(child.id)}
-                        >
-                          {child.label}
-                        </button>
-                      ))}
+                      <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                        뉴스스탠드
+                      </button>
+                      <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsEditing'}>
+                        언론사편집
+                      </button>
                     </div>
                   </li>
                 );
               }
-              return (
-                <li className={style.categoryItem} role="presentation">
-                  <button
-                    type="button"
-                    className={style.categoryTab}
-                    role="tab"
-                    aria-selected={activeTab === category.id}
-                    aria-controls={`panel-${category.id}`}
-                    key={category.id}
-                    onClick={() => setActiveTab(category.id)}
-                  >
-                    {category.label}
-                  </button>
-                </li>
-              );
             })}
+
+            <li className={style.categoryItem}>
+              <div className={style.categoryGroup}>
+                <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                  뉴스스탠드
+                </button>
+                <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsEditing'}>
+                  언론사편집
+                </button>
+              </div>
+            </li>
+            <li className={style.categoryItem}>
+              <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                엔터
+              </button>
+            </li>
+            <li className={style.categoryItem}>
+              <button type="button" id="tab-newsstand" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                스포츠
+              </button>
+            </li>
+            <li className={style.categoryItem}>
+              <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                게임
+              </button>
+            </li>
+            <li className={style.categoryItem}>
+              <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                경제
+              </button>
+            </li>
+            <li className={style.categoryItem}>
+              <button type="button" className={style.categoryTab} role="tab" aria-selected={activeTab === 'newsStand'} aria-controls="panel-newsstand">
+                쇼핑투데이
+              </button>
+            </li>
           </ul>
         </div>
       </div>
-      <div
-        className={style.newsContainer}
-        aria-live="polite"
-        role="tabpanel"
-        aria-labelledby={activeTab === 'newsStand' ? 'tab-newsstand' : 'tab-editor'}
-      >
+      <div className={style.newsContainer} aria-live="polite" role="tabpanel" aria-labelledby={activeTab === 'newsStand' ? 'tab-newsstand' : 'tab-editor'}>
         <div className={style.sub}>
           <ul className={style.subList}>
             <li className={style.subItem}>
@@ -85,9 +96,7 @@ export function NewsSection() {
                     />
                   </span>
                   <div className={style.info}>
-                    <span className={style.title}>
-                      “내가 불운 다 가져갈게”…조유민 오열, 대표팀 로비 눈물바다 만든 마지막 인사
-                    </span>
+                    <span className={style.title}>“내가 불운 다 가져갈게”…조유민 오열, 대표팀 로비 눈물바다 만든 마지막 인사</span>
                     <div className={style.desc}>
                       <span className={style.company}>동아일보</span>
                       <span className={style.time}>2시간전</span>
@@ -107,9 +116,7 @@ export function NewsSection() {
                     />
                   </span>
                   <div className={style.info}>
-                    <span className={style.title}>
-                      “내가 불운 다 가져갈게”…조유민 오열, 대표팀 로비 눈물바다 만든 마지막 인사
-                    </span>
+                    <span className={style.title}>“내가 불운 다 가져갈게”…조유민 오열, 대표팀 로비 눈물바다 만든 마지막 인사</span>
                     <div className={style.desc}>
                       <span className={style.company}>동아일보</span>
                       <span className={style.time}>2시간전</span>
@@ -123,53 +130,37 @@ export function NewsSection() {
             <ul className={style.noticeList}>
               <li className={style.noticeItem}>
                 <a href="#" target="_blank" className={style.noticeLink} rel="noopener noreferrer">
-                  <span className={style.text}>
-                    "이 이미지 잊히지 않겠지만..." 50G 징계 마친 롯데 김동혁, 팬들 앞에 고개 숙였다
-                    "정말 잘해야겠다는 생각뿐입니다" [광주 현장인터뷰]
-                  </span>
+                  <span className={style.text}>"이 이미지 잊히지 않겠지만..." 50G 징계 마친 롯데 김동혁, 팬들 앞에 고개 숙였다 "정말 잘해야겠다는 생각뿐입니다" [광주 현장인터뷰]</span>
                   <span className={style.company}>스타뉴스</span>
                 </a>
               </li>
               <li className={style.noticeItem}>
                 <a href="#" target="_blank" className={style.noticeLink} rel="noopener noreferrer">
-                  <span className={style.text}>
-                    에릭센 또 쓰러졌는데 "마지막 경기일 것"…손흥민 절친, 더는 그라운에서 못
-                    보나→"추가 검사 필요"
-                  </span>
+                  <span className={style.text}>에릭센 또 쓰러졌는데 "마지막 경기일 것"…손흥민 절친, 더는 그라운에서 못 보나→"추가 검사 필요"</span>
                   <span className={style.company}>엑스포츠뉴스</span>
                 </a>
               </li>
               <li className={style.noticeItem}>
                 <a href="#" target="_blank" className={style.noticeLink} rel="noopener noreferrer">
-                  <span className={style.text}>
-                    '16개 대회 전부 컷 통과' 김시우, 세계 18위 커리어 최고 찍었다
-                  </span>
+                  <span className={style.text}>'16개 대회 전부 컷 통과' 김시우, 세계 18위 커리어 최고 찍었다</span>
                   <span className={style.company}>마니아타임즈</span>
                 </a>
               </li>
               <li className={style.noticeItem}>
                 <a href="#" target="_blank" className={style.noticeLink} rel="noopener noreferrer">
-                  <span className={style.text}>
-                    "이 이미지 잊히지 않겠지만..." 50G 징계 마친 롯데 김동혁, 팬들 앞에 고개 숙였다
-                    "정말 잘해야겠다는 생각뿐입니다" [광주 현장인터뷰]
-                  </span>
+                  <span className={style.text}>"이 이미지 잊히지 않겠지만..." 50G 징계 마친 롯데 김동혁, 팬들 앞에 고개 숙였다 "정말 잘해야겠다는 생각뿐입니다" [광주 현장인터뷰]</span>
                   <span className={style.company}>스타뉴스</span>
                 </a>
               </li>
               <li className={style.noticeItem}>
                 <a href="#" target="_blank" className={style.noticeLink} rel="noopener noreferrer">
-                  <span className={style.text}>
-                    에릭센 또 쓰러졌는데 "마지막 경기일 것"…손흥민 절친, 더는 그라운에서 못
-                    보나→"추가 검사 필요"
-                  </span>
+                  <span className={style.text}>에릭센 또 쓰러졌는데 "마지막 경기일 것"…손흥민 절친, 더는 그라운에서 못 보나→"추가 검사 필요"</span>
                   <span className={style.company}>엑스포츠뉴스</span>
                 </a>
               </li>
               <li className={style.noticeItem}>
                 <a href="#" target="_blank" className={style.noticeLink} rel="noopener noreferrer">
-                  <span className={style.text}>
-                    '16개 대회 전부 컷 통과' 김시우, 세계 18위 커리어 최고 찍었다
-                  </span>
+                  <span className={style.text}>'16개 대회 전부 컷 통과' 김시우, 세계 18위 커리어 최고 찍었다</span>
                   <span className={style.company}>마니아타임즈</span>
                 </a>
               </li>

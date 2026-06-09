@@ -6,6 +6,7 @@
     @include flex($justify: space-between, $align: flex-start);
     gap: 30px;
     margin-bottom: 30px;
+    font-size: 14px;
     .layout {
       &-left {
         width: 830px;

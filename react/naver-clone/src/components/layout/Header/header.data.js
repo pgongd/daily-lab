@@ -8,5 +8,5 @@ export const serviceIcon = [
   { type: 'type_real', text: '부동산' },
   { type: 'type_map', text: '지도' },
   { type: 'type_webtoon', text: '웹툰' },
-  { type: 'type_chzzk', text: '치지직' },
+  { type: 'type_chzzk', text: '치지직' }
 ];
